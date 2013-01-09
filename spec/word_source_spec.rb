@@ -113,8 +113,8 @@ describe WordSource do
 
     before { TwitterApi.stub(:get_user_tweets => railscasts_tweets) }
 
-    its(:top_5_words)       { should == ["as", "", "working", "to", "this"] }
+    its(:top_5_words)       { should == ["as", "working", "to", "this", "about"] }
     its(:top_5_consonants)  { should == ["o", "t", "s", "e", "a"] }
-    its(:count)             { should == 109 }
+    its(:count)             { should == 113 }
   end
 end

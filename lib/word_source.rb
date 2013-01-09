@@ -48,7 +48,7 @@ class WordSource
   end
 
   def self.load_from_last_user_tweets username
-    source = TwitterApi.get_user_tweets(username).map(&:text).join("")
+    source = TwitterApi.get_user_tweets(username).map(&:text).join(" ")
     self.new(source)
   end
 
@@ -75,7 +75,7 @@ class WordSource
   end
 
   def source_array
-    @source_array ||= @source.split /[ .,]/
+    @source_array ||= @source.split(/[ .,]/).reject(&:empty?)
   end
 
   def current_word
